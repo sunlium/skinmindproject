@@ -201,12 +201,12 @@ function initializeCharts() {
 
 // Update chart theme on dark mode toggle
 function updateChartTheme() {
-    // Reinitialize charts with new theme
-    const charts = Chart.helpers.getChart.getChartInstance || Chart.instances;
-    if (charts && charts.length > 0) {
-        charts.forEach(chart => chart.destroy());
-    }
-    initializeCharts();
+    // Destroy all existing charts
+    Chart.helpers.each(Chart.instances, function(instance) {
+        instance.destroy();
+    });
+    // Reinitialize with new theme
+    setTimeout(initializeCharts, 100);
 }
 
 // Smooth scrolling for navigation links
