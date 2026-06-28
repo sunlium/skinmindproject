@@ -9,6 +9,11 @@
         .resources-section {
             padding: 4rem 2rem;
             background-color: white;
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode .resources-section {
+            background-color: #2a2a2a;
         }
 
         .resource-list {
@@ -22,6 +27,11 @@
             margin-bottom: 1.5rem;
             border-radius: 10px;
             border-left: 4px solid #667eea;
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode .resource-item {
+            background: #3a3a3a;
         }
 
         .resource-item h3 {
@@ -52,7 +62,9 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="resources.html" class="nav-link active">Resources</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">🌙</button>
         </div>
     </nav>
 

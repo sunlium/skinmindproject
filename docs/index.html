@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skin Mind Project - Dermatillomania Awareness</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -14,7 +15,9 @@
                 <li><a href="index.html" class="nav-link active">Home</a></li>
                 <li><a href="resources.html" class="nav-link">Resources</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">🌙</button>
         </div>
     </nav>
 
@@ -63,6 +66,32 @@
                 <div class="stat-card">
                     <h3>Ages 10-30</h3>
                     <p>Peak onset period</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dashboard-section">
+        <div class="container">
+            <h2>Awareness & Statistics</h2>
+            <p>Understanding the scope of dermatillomania through data</p>
+            
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Demographic Distribution</h3>
+                    <canvas id="ageChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Common Triggers</h3>
+                    <canvas id="triggersChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Awareness Over Time</h3>
+                    <canvas id="awarenessChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Treatment Effectiveness</h3>
+                    <canvas id="treatmentChart"></canvas>
                 </div>
             </div>
         </div>
