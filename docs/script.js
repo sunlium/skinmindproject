@@ -2,14 +2,23 @@
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    updateChartTheme();
+    
+    // Destroy and reinitialize charts
+    setTimeout(() => {
+        Chart.helpers.each(Chart.instances, function(instance) {
+            instance.destroy();
+        });
+        initializeCharts();
+    }, 100);
 }
 
-// Load dark mode preference
-window.addEventListener('load', () => {
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
-    }
+// Load dark mode preference on page load
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+}
+
+// Initialize charts when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
     initializeCharts();
 });
 
@@ -197,16 +206,6 @@ function initializeCharts() {
             }
         });
     }
-}
-
-// Update chart theme on dark mode toggle
-function updateChartTheme() {
-    // Destroy all existing charts
-    Chart.helpers.each(Chart.instances, function(instance) {
-        instance.destroy();
-    });
-    // Reinitialize with new theme
-    setTimeout(initializeCharts, 100);
 }
 
 // Smooth scrolling for navigation links
